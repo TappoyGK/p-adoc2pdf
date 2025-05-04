@@ -1,5 +1,5 @@
 .asciidoctor
-images/diag-*
+diag-*
 src/
 dst/
 resources/fonts/*

@@ -1,0 +1,9 @@
+extends: basic-theme.yml
+header:
+  font-color: 2ecc71
+  recto:
+    right:
+      content: '【公開】'
+  verso:
+    left:
+      content: $header_recto_right_content 

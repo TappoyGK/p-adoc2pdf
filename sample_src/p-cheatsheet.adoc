@@ -1,0 +1,65 @@
+= AsciiDoc & Mermaid Cheat Sheet
+タッポイ合同会社
+:toc: left
+:icons: font
+:sectnums:
+:source-highlighter: coderay
+:allow-uri-read: true
+
+== 見出し (Headings)
+
+=== 三階層見出し
+
+== リスト (Lists)
+
+* 箇条書き 1
+* 箇条書き 2
+** ネスト 1
+** ネスト 2
+
+. 番号付き 1
+. 番号付き 2
+
+== コードブロック (Source Code)
+
+[,ruby]
+----
+5.times do |i|
+  puts "Hello #{i}!"
+end
+----
+
+== テーブル (Table)
+
+|===
+|名前 |部署 |役職
+|山田 |開発 |マネージャー
+|佐藤 |営業 |スタッフ
+|===
+
+== アドモニション (Admonitions)
+
+NOTE: これはメモです。
+
+TIP: 便利なヒント。
+
+WARNING: 注意喚起。
+
+== Mermaid ダイアグラム
+
+[mermaid,format=png]
+....
+sequenceDiagram
+  participant User
+  participant System
+  User->>System: リクエスト
+  System-->>User: レスポンス
+....
+
+== 画像 (Images)
+
+image::https://asciidoctor.org/images/octocat.jpg[Octocat]
+
+== インラインスタイル
+
+*強調*, _斜体_, +等幅+ 

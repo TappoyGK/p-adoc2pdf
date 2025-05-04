@@ -1,0 +1,9 @@
+extends: basic-theme.yml
+header:
+  font-color: 999999
+  recto:
+    right:
+      content: '【社外秘】'
+  verso:
+    left:
+      content: $header_recto_right_content 

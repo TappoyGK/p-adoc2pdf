@@ -1,0 +1,38 @@
+= AsciiDoc Callouts & Roles Cheat Sheet
+タッポイ合同会社
+:toc: left
+:icons: font
+:sectnums:
+:allow-uri-read:
+
+== コールアウト (Callouts)
+
+[,bash]
+----
+$ cp source dest  # <1>
+$ rm dest        # <2>
+----
+<1> ファイルをコピーします
+<2> コピーしたファイルを削除します
+
+== カスタムロール (Roles)
+
+[role="blue"]
+これは青色になります。
+
+[.big]
+これは大きな文字です。
+
+== フットノート (Footnote)
+
+これは footnote:[脚注の例] です。
+
+== キーバインド (Keyboard)
+
+kbd:[Ctrl+C] でコピー。
+
+== 変数 (Variables)
+
+:today: 2025-01-01
+
+今日の日付は {today} です。 

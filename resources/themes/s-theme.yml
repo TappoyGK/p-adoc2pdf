@@ -1,0 +1,9 @@
+extends: basic-theme.yml
+header:
+  font-color: e67e22
+  recto:
+    right:
+      content: '【秘文書】'
+  verso:
+    left:
+      content: $header_recto_right_content 

@@ -15,6 +15,42 @@ Asciidoctor で記述した `*.adoc` ファイルを PDF へビルドするた�
 * KaiGen Gothic JP フォントを GitHub Releases から自動ダウンロード（`make install`）
 * RubyGems / Bundler だけで完結
 
+== プレフィックスによる機密区分ラベル
+
+ファイル名の先頭を `p- / i- / s- / ts-` にすることで、
+ビルド時に以下のテーマが自動適用され、ヘッダにラベルと色が付きます。
+
+[options="header",cols="1,2,2"]
+|===
+|プレフィックス|ラベル|ヘッダ色
+|`p-`|【公開】|#2ecc71 (緑)
+|`i-`|【社外秘】|#999999 (灰)
+|`s-`|【秘文書】|#e67e22 (橙)
+|`ts-`|【極秘】|#e74c3c (赤)
+|===
+
+テーマファイルは `resources/themes/*-theme.yml` にあり、
+`extends: basic-theme.yml` で共通設定を継承しています。
+
+== サンプルのビルド
+
+簡単なチートシートを 4 種用意しています。
+
+[options="header"]
+|===
+|ファイル|内容の例
+|`sample_src/p-cheatsheet.adoc`|基本構文 + Mermaid
+|`sample_src/i-cheatsheet.adoc`|属性・マクロ
+|`sample_src/s-cheatsheet.adoc`|高度なブロック
+|`sample_src/ts-cheatsheet.adoc`|コールアウト & ロール
+|===
+
+[,shell]
+----
+make sample        # sample_src → sample_dst に PDF を生成
+make clean-sample  # サンプル生成物を削除
+----
+
 == ディレクトリ構成
 
 ```

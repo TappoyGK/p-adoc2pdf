@@ -1,0 +1,9 @@
+extends: basic-theme.yml
+header:
+  font-color: e74c3c
+  recto:
+    right:
+      content: '【極秘】'
+  verso:
+    left:
+      content: $header_recto_right_content 

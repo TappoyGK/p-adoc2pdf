@@ -1,0 +1,40 @@
+= AsciiDoc Attributes & Macros Cheat Sheet
+タッポイ合同会社
+:toc: left
+:icons: font
+:sectnums:
+:allow-uri-read:
+
+== 属性 (Attributes)
+
+:product: Tappoy System
+:version: 3.1.0
+
+*製品名*: {product}
+
+*バージョン*: {version}
+
+ifndef::env-github[]
+NOTE: GitHub 以外でのみ表示されるブロックです。
+endif::[]
+
+== インクルード (Include)
+
+以下は別ファイルをインクルードする例です。
+
+----
+\include::../README.adoc[leveloffset=+1]
+----
+
+== 参照 (Cross-reference)
+
+別章へのリンクは <<_属性_attributes>> のように書けます。
+
+== Inline Macros
+
+メール: mailto:info@example.com[お問い合わせ]
+
+URL: https://tappoy.co.jp[Tappoy]
+
+Image Macro::
+image::https://placehold.jp/150x100.png[placeholder] 

@@ -1,0 +1,48 @@
+= AsciiDoc Advanced Blocks Cheat Sheet
+タッポイ合同会社
+:toc: left
+:icons: font
+:sectnums:
+:allow-uri-read:
+
+== サイドバー (Sidebar)
+
+[sidebar]
+.Sidebar Title
+****
+これはサイドバーの内容です。
+****
+
+== 例 (Example Block)
+
+[example]
+====
+入力例や出力例を示すのに便利です。
+====
+
+== クオート (Quote)
+
+[quote, スペンサー, *Pillars of the Earth*]
+____
+Builders ultimately built themselves.
+____
+
+== パススルー (Passthrough)
+
+++++
+<span style="color:red">HTML そのまま</span>
+++++
+
+== 数式 (Math)
+
+latexmath:[e^{i\pi}+1=0]
+
+== ファイルツリー (Tree Listing)
+
+[tree]
+----
+project/
+├── src/
+│   └── main.adoc
+└── build/
+---- 
