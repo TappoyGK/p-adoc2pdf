@@ -1,0 +1,96 @@
+= p-adoc2pdf
+:toc: left
+:toclevels: 2
+:icons: font
+:sectnums:
+
+Asciidoctor で記述した `*.adoc` ファイルを PDF へビルドするための *Makefile + Gemfile* セットです。
+
+本リポジトリは **サブモジュールとして利用** されることを想定しています。
+
+== 特徴
+
+* `src` ディレクトリ内の `*.adoc` を自動検出して PDF 化
+* ビルド結果は `dst` ディレクトリに配置
+* KaiGen Gothic JP フォントを GitHub Releases から自動ダウンロード（`make install`）
+* RubyGems / Bundler だけで完結
+
+== ディレクトリ構成
+
+```
+project-root/
+├── src/                # .adoc 原稿を置く
+├── dst/                # 生成される .pdf の出力先
+└── p-adoc2pdf/         # 本サブモジュール
+```
+
+サブモジュール直下には既に `src` / `dst` への *シンボリックリンク* を同梱しています。 
+（デフォルトで `../src` と `../dst` を指しています）
+
+リンク先を変更したい場合のみ、下記のように張り直してください。
+
+[,shell]
+----
+# 例) 原稿を ./docs/adoc 以下に置く場合
+cd p-adoc2pdf
+ln -sf ../docs/adoc src
+ln -sf ../docs/pdf  dst
+----
+
+== インストール手順
+
+[,shell]
+----
+# 1. 依存 Gem のインストール
+bundle install
+
+# 2. 必要フォントのダウンロード
+make install
+----
+
+== ビルド方法
+
+[,shell]
+----
+# src/*.adoc → dst/*.pdf を生成
+make build   # もしくは単に `make`
+----
+
+== Makefile ターゲット一覧
+
+|===
+| ターゲット | 説明
+| *install* | KaiGen Gothic フォントをダウンロード
+| *build*   | PDF の生成（install ⇒ build の順で実行）
+| *clean*   | 生成物（dst/*.pdf）を削除
+|===
+
+== サブモジュールとしての追加方法
+
+[,shell]
+----
+# 親リポジトリにサブモジュールを追加
+git submodule add git@github.com:TappoyGK/p-adoc2pdf.git p-adoc2pdf
+
+# 初回のみサブモジュールのセットアップ
+cd p-adoc2pdf
+bundle install && make install
+----
+
+以降は親リポジトリ側で `git submodule update --remote` を行えば、
+本ツール側の更新も取り込めます。
+
+== 外部でご利用される方へ
+
+本ツールは link:https://tappoy.com[*タッポイ合同会社*] が社内ドキュメントを PDF 化する目的で開発したものを公開しているリポジトリです。
+
+同梱している Asciidoctor PDF テーマは、
+当社のブランド／レイアウト要件に合わせて調整しています。 そのままでは他社様のガイドラインや書式に適合しない可能性が高いため、
+実際にご利用になる際は *フォーク（派生）リポジトリを作成し、テーマ部分をカスタマイズ* してお使いください。
+
+軽微な不具合報告や Pull Request は歓迎いたしますが、
+当社内部向けツールのため *一般利用を前提とした機能追加・サポートは保証しておりません*。 あらかじめご了承ください。
+
+== ライセンス
+
+GNU Lesser General Public License v3.0 (link:LICENSE[LICENSE])

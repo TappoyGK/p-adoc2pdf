@@ -1,0 +1,5 @@
+.asciidoctor
+images/diag-*
+src/
+dst/
+resources/fonts/*
